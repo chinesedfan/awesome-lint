@@ -35,11 +35,13 @@ module.exports = rule('remark-lint:awesome/git-repo-age', async (ast, file) => {
 		if (now - date < minGitRepoAgeMs) {
 			file.message(`Git repository must be at least ${minGitRepoAgeDays} days old`);
 		}
+		console.log('done rule git-repo-age', now, date);
 	} catch (_) {
 		console.log(_)
 		// Most likely not a Git repository
 		file.message('Awesome list must reside in a valid git repository');
 	}
+	console.log('exit rule git-repo-age');
 });
 
 // For stubbing
